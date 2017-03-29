@@ -5,10 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-list [virtualScroll]="items">
+  <button ion-button (click)="loadData()">Load Data</button>
+
+  <ion-list [virtualScroll]="items" [approxItemHeight]="'40px'">
 
     <ion-item *virtualItem="let item">
-      {{ item }}
+      {{ item.title }}>
     </ion-item>
 
   </ion-list>

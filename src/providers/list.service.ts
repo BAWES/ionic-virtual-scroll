@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -11,8 +11,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ListService {
 
+  private _endpoint: string = "https://jsonplaceholder.typicode.com/photos";
+
   constructor(public http: Http) {
-    console.log('Hello ListService Provider');
+  }
+
+  getData(){
+    const head = new Headers();
+    head.append("Content-Type", "application/json");
+    let url = `${this._endpoint}`;
+    
+    return this.http.get(url, {headers: head}).map(resp => resp.json());
   }
 
 }
