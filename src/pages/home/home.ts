@@ -10,7 +10,7 @@ import { ListService } from '../../providers/list.service';
 })
 export class HomePage {
 
-  public items:any[];
+  public items:any[]=[];
 
   constructor(public navCtrl: NavController, private _listService: ListService) {
   }
@@ -25,7 +25,7 @@ export class HomePage {
   }
 
   clicked(item){
-    
+
   }
 
 }
